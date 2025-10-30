@@ -4,8 +4,5 @@ nixPkgs = ["python39", "postgresql"]
 [phases.install]
 cmds = ["pip install -r requirements-sqlite.txt"]
 
-[phases.build]
-cmds = ["python scripts/init_db.py", "python scripts/seed_data.py"]
-
 [start]
 cmd = "bash start.sh"
