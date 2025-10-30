@@ -46,10 +46,10 @@ const nextConfig = {
     NEXT_PUBLIC_API_URL: process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000',
     NEXT_PUBLIC_GA_TRACKING_ID: process.env.NEXT_PUBLIC_GA_TRACKING_ID || '',
   },
-  // Enable static exports for static site generation
-  output: 'standalone',
+  // Disable standalone for Railway deployment
+  // output: 'standalone',
   // Enable source maps in production
-  productionBrowserSourceMaps: true,
+  productionBrowserSourceMaps: false,
 };
 
 module.exports = withPWA(nextConfig);

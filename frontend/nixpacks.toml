@@ -2,14 +2,10 @@
 nixPkgs = ["nodejs-18_x"]
 
 [phases.install]
-cmds = ["npm ci"]
+cmds = ["npm ci --legacy-peer-deps"]
 
 [phases.build]
-cmds = [
-  "npm run build",
-  "cp -r .next/static .next/standalone/.next/",
-  "cp -r public .next/standalone/"
-]
+cmds = ["npm run build"]
 
 [start]
-cmd = "cd .next/standalone && node server.js"
+cmd = "npm start"
