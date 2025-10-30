@@ -1,44 +1,95 @@
+<div align="center">
+
 # 🌾 MGNREGA Dashboard
+### Our Voice, Our Rights | हमारी आवाज़, हमारे अधिकार
 
-A citizen-friendly web application for visualizing MGNREGA (Mahatma Gandhi National Rural Employment Guarantee Act) performance metrics at the district level across India.
+<p align="center">
+  <strong>A citizen-friendly web application for visualizing MGNREGA performance metrics across India</strong>
+</p>
 
-**Live Demo**: https://carefree-integrity-production.up.railway.app
+<p align="center">
+  <a href="https://mgnrega-website.up.railway.app/">
+    <img src="https://img.shields.io/badge/🌐_Live_Demo-Visit_Now-success?style=for-the-badge&logo=railway&logoColor=white" alt="Live Demo">
+  </a>
+  <a href="https://github.com/Niladri-Peace/MGNREGA-Website">
+    <img src="https://img.shields.io/badge/⭐_GitHub-Repository-blue?style=for-the-badge&logo=github" alt="GitHub">
+  </a>
+</p>
+
+<p align="center">
+  <img src="https://img.shields.io/badge/Next.js-14-black?style=flat&logo=next.js" alt="Next.js">
+  <img src="https://img.shields.io/badge/FastAPI-Python-009688?style=flat&logo=fastapi" alt="FastAPI">
+  <img src="https://img.shields.io/badge/Railway-Deployed-blueviolet?style=flat&logo=railway" alt="Railway">
+  <img src="https://img.shields.io/badge/License-MIT-green?style=flat" alt="License">
+</p>
 
 ---
 
+</div>
+
 ## 📖 About
 
-This dashboard makes MGNREGA data accessible to citizens, especially those in rural areas with limited technical literacy. It empowers users to understand their district's performance in simple, visual terms.
+This dashboard makes MGNREGA (Mahatma Gandhi National Rural Employment Guarantee Act) data accessible to citizens, especially those in rural areas with limited technical literacy. It empowers users to understand their district's performance in simple, visual terms.
 
-### Key Features
+### ✨ Key Features
 
-- **Bilingual Interface**: Hindi and English support
-- **Accessible Design**: Large icons, simple visualizations, audio features
-- **District Selection**: Browse by state/district or auto-detect location
-- **Performance Metrics**: Employment, wages, completed works, person-days
-- **Historical Data**: View trends over time
-- **Mobile-Friendly**: Responsive design with large touch targets
+<table>
+<tr>
+<td width="33%">
+
+#### 🌍 Bilingual Support
+Hindi and English interface for wider accessibility
+
+</td>
+<td width="33%">
+
+#### 📱 Mobile-First Design
+Large touch targets and responsive layout
+
+</td>
+<td width="33%">
+
+#### 📍 Auto-Location
+Geolocation-based district detection
+
+</td>
+</tr>
+<tr>
+<td width="33%">
+
+#### 📊 Rich Metrics
+Employment, wages, works, person-days
+
+</td>
+<td width="33%">
+
+#### 📈 Historical Data
+View trends over 12 months
+
+</td>
+<td width="33%">
+
+#### 🎯 Accessible UI
+Icons, colors, simple visualizations
+
+</td>
+</tr>
+</table>
 
 ---
 
 ## 🛠️ Technology Stack
 
-**Frontend**
-- Next.js 14 (React 18)
-- TypeScript
-- Tailwind CSS
-- PWA support
+<div align="center">
 
-**Backend**
-- FastAPI (Python)
-- SQLite database
-- RESTful API
-- Auto-generated API documentation
+| Frontend | Backend | Deployment |
+|:--------:|:-------:|:----------:|
+| ![Next.js](https://img.shields.io/badge/Next.js_14-black?style=for-the-badge&logo=next.js) | ![FastAPI](https://img.shields.io/badge/FastAPI-009688?style=for-the-badge&logo=fastapi&logoColor=white) | ![Railway](https://img.shields.io/badge/Railway-0B0D0E?style=for-the-badge&logo=railway&logoColor=white) |
+| ![React](https://img.shields.io/badge/React_18-61DAFB?style=for-the-badge&logo=react&logoColor=black) | ![Python](https://img.shields.io/badge/Python_3.11-3776AB?style=for-the-badge&logo=python&logoColor=white) | ![Docker](https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white) |
+| ![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white) | ![SQLite](https://img.shields.io/badge/SQLite-003B57?style=for-the-badge&logo=sqlite&logoColor=white) | ![GitHub](https://img.shields.io/badge/GitHub_Actions-2088FF?style=for-the-badge&logo=github-actions&logoColor=white) |
+| ![Tailwind](https://img.shields.io/badge/Tailwind_CSS-06B6D4?style=for-the-badge&logo=tailwind-css&logoColor=white) | ![Pydantic](https://img.shields.io/badge/Pydantic-E92063?style=for-the-badge&logo=pydantic&logoColor=white) | |
 
-**Deployment**
-- Railway (Platform as a Service)
-- Docker support
-- Automated CI/CD
+</div>
 
 ---
 
@@ -101,10 +152,16 @@ mgnrega-dashboard/
 
 ## 📊 Data Coverage
 
-- **States**: 5 major states (West Bengal, Uttar Pradesh, Bihar, Maharashtra, Tamil Nadu)
-- **Districts**: 30+ districts with comprehensive data
-- **Metrics**: Employment statistics, wage data, works completed, person-days
-- **Time Range**: 12 months of historical data per district
+<div align="center">
+
+| 🗺️ Coverage | 📈 Details |
+|:------------|:-----------|
+| **5** Major States | West Bengal, Uttar Pradesh, Bihar, Maharashtra, Tamil Nadu |
+| **30+** Districts | Comprehensive district-level data |
+| **12** Months | Historical trends and comparisons |
+| **4** Key Metrics | Employment • Wages • Works • Person-Days |
+
+</div>
 
 ---
 
@@ -139,4 +196,22 @@ This project is open source and available under the MIT License.
 
 ---
 
+<div align="center">
+
+### 🌟 Live Application
+
+**Visit the dashboard:** [https://mgnrega-website.up.railway.app/](https://mgnrega-website.up.railway.app/)
+
+---
+
+<p>
 Made with ❤️ for empowering citizens
+</p>
+
+<p>
+  <a href="https://mgnrega-website.up.railway.app/">
+    <img src="https://img.shields.io/badge/🚀_View_Live_Demo-Visit_Now-success?style=for-the-badge" alt="Live Demo">
+  </a>
+</p>
+
+</div>
