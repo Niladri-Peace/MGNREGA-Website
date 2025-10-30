@@ -82,7 +82,7 @@ export const api = {
 
   // Geolocation - Detect district by coordinates
   detectDistrictByLocation: async (lat: number, lon: number) => {
-    const response = await apiClient.get('/api/v1/location/detect-district', {
+    const response = await apiClient.get('/api/v1/districts/detect-by-location', {
       params: { lat, lon },
     });
     return response.data;
