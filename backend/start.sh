@@ -1,13 +1,17 @@
 #!/bin/bash
 # Railway startup script
 
-# Initialize database and seed data if not exists
-if [ ! -f mgnrega.db ]; then
-    echo "Initializing database..."
-    python scripts/init_db.py
-    echo "Seeding data..."
-    python scripts/seed_data.py
-fi
+echo "=== MGNREGA Backend Startup ==="
+echo "Checking for database..."
 
+# Always initialize database (idempotent - creates tables if not exist)
+echo "Running database initialization..."
+python scripts/init_db.py
+
+# Check if database has data
+echo "Checking if database needs seeding..."
+python scripts/seed_data.py
+
+echo "Starting FastAPI server..."
 # Start the server
 uvicorn app.main:app --host 0.0.0.0 --port ${PORT:-8000}
