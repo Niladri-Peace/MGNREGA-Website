@@ -21,11 +21,33 @@ logging.basicConfig(
 logger = logging.getLogger(__name__)
 
 # Import database and models
-from .db.base import Base, engine, get_db
+from .db.base import Base, engine, get_db, SessionLocal
 from .db.models import State, District, MonthlyMetric
 
 # Create database tables
 Base.metadata.create_all(bind=engine)
+
+# Initialize data on startup
+logger.info("Checking database for initial data...")
+db = SessionLocal()
+try:
+    state_count = db.query(State).count()
+    if state_count == 0:
+        logger.info("No data found. Running initial seed...")
+        # Import and run seed function
+        import sys
+        from pathlib import Path
+        scripts_path = Path(__file__).parent.parent / "scripts"
+        sys.path.insert(0, str(scripts_path))
+        from seed_data import main as seed_main
+        seed_main()
+        logger.info("Initial data seeded successfully!")
+    else:
+        logger.info(f"Database already has {state_count} states")
+except Exception as e:
+    logger.error(f"Error checking/seeding database: {e}")
+finally:
+    db.close()
 
 # Initialize FastAPI app
 app = FastAPI(
