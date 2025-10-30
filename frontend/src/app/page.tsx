@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useStates, useDistricts } from '@/hooks/useDistrict';
 import { useGeolocation } from '@/hooks/useGeolocation';
 import DistrictSelector from '@/components/DistrictSelector';
@@ -16,6 +16,28 @@ export default function HomePage() {
   const { data: states, isLoading: statesLoading } = useStates();
   const { data: districts, isLoading: districtsLoading } = useDistricts(selectedState);
   const { detectedDistrict, loading: geoLoading, error: geoError, requestLocation } = useGeolocation();
+
+  // Auto-select state and district when location is detected
+  useEffect(() => {
+    if (detectedDistrict && states) {
+      // Find the state that matches the detected state name
+      const state = states.find(s => s.name === detectedDistrict.state_name);
+      if (state) {
+        setSelectedState(state.id);
+        // District will be set after districts are loaded
+      }
+    }
+  }, [detectedDistrict, states]);
+
+  // Auto-select district when districts are loaded after state selection
+  useEffect(() => {
+    if (detectedDistrict && districts && selectedState) {
+      const district = districts.find(d => d.name === detectedDistrict.name);
+      if (district) {
+        setSelectedDistrict(district.id);
+      }
+    }
+  }, [detectedDistrict, districts, selectedState]);
 
   const handleStateChange = (stateId: number) => {
     setSelectedState(stateId);
