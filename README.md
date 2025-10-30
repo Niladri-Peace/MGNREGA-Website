@@ -1,122 +1,50 @@
-# 🌾 MGNREGA Dashboard - Our Voice, Our Rights
+# 🌾 MGNREGA Dashboard
 
-A comprehensive, citizen-friendly dashboard for visualizing MGNREGA (Mahatma Gandhi National Rural Employment Guarantee Act) performance metrics at the district level across India.
+A citizen-friendly web application for visualizing MGNREGA (Mahatma Gandhi National Rural Employment Guarantee Act) performance metrics at the district level across India.
 
-**Live Demo**: [Deploy on Railway](https://railway.app) - See `RAILWAY_DEPLOY.md` for instructions
-
----
-
-## 🎯 Project Overview
-
-This dashboard makes MGNREGA data accessible to common citizens, especially those in rural areas with low technical literacy. With 12.15 Crore rural Indians benefiting from MGNREGA, this tool empowers citizens to:
-
-- ✅ Understand their district's performance in simple terms
-- ✅ View current and historical performance data
-- ✅ Compare their district with others
-- ✅ Access information in their native language
-- ✅ Use audio features for low-literacy users
+**Live Demo**: https://carefree-integrity-production.up.railway.app
 
 ---
 
-## ✨ Key Features
+## 📖 About
 
-### 1. **Low-Literacy Friendly UX** 🎨
-- **Large Icons**: 👥 (People), 💰 (Money), 🔨 (Work), 📅 (Days)
-- **Audio Playback**: Text-to-Speech in Hindi for every metric
-- **Bilingual**: English + Hindi labels throughout
-- **Simple Visualizations**: Bar charts with large numbers
-- **Color Coding**: Green (good), Red (attention needed)
-- **Big Touch Targets**: Minimum 44x44px for mobile users
+This dashboard makes MGNREGA data accessible to citizens, especially those in rural areas with limited technical literacy. It empowers users to understand their district's performance in simple, visual terms.
 
-### 2. **District Selection** 📍
-- Dropdown selection for all Indian states
-- Dynamic district list based on selected state
-- Automatic district detection via geolocation (bonus feature)
+### Key Features
 
-### 3. **Performance Metrics** 📊
-- Total households employed
-- Total wages paid (in Crores)
-- Number of works completed
-- Person-days generated
-- Historical trends and comparisons
-
-### 4. **Production-Ready** 🏗️
-- Caching layer for performance
-- Error handling and fallbacks
-- Rate limiting
-- Health check endpoints
-- Structured logging
+- **Bilingual Interface**: Hindi and English support
+- **Accessible Design**: Large icons, simple visualizations, audio features
+- **District Selection**: Browse by state/district or auto-detect location
+- **Performance Metrics**: Employment, wages, completed works, person-days
+- **Historical Data**: View trends over time
+- **Mobile-Friendly**: Responsive design with large touch targets
 
 ---
 
 ## 🛠️ Technology Stack
 
-### Frontend
-- **Framework**: Next.js 14 (React 18)
-- **Language**: TypeScript
-- **Styling**: Tailwind CSS
-- **Features**: PWA, Responsive Design, Accessibility
+**Frontend**
+- Next.js 14 (React 18)
+- TypeScript
+- Tailwind CSS
+- PWA support
 
-### Backend
-- **Framework**: FastAPI (Python 3.11)
-- **Database**: SQLite (production-ready)
-- **API**: RESTful with auto-generated docs
-- **Features**: Async, Validation, Error Handling
+**Backend**
+- FastAPI (Python)
+- SQLite database
+- RESTful API
+- Auto-generated API documentation
 
-### Deployment
-- **Platform**: Railway (recommended) or Docker
-- **CI/CD**: Auto-deploy on git push
-- **Monitoring**: Built-in health checks
+**Deployment**
+- Railway (Platform as a Service)
+- Docker support
+- Automated CI/CD
 
 ---
 
 ## 🚀 Quick Start
 
-### Option 1: Deploy to Railway (Recommended - 15 minutes)
-
-**Perfect for quick deployment and project submission!**
-
-1. **Fork/Clone this repository**
-   ```bash
-   git clone https://github.com/Niladri-Peace/MGNREGA-Website.git
-   cd MGNREGA-Website
-   ```
-
-2. **Follow the Railway deployment guide**
-   - See: **`RAILWAY_DEPLOY.md`**
-   - No credit card required
-   - $5 free credit per month
-   - Auto-deploys on git push
-
-3. **Done!**
-   - Your app will be live in ~15 minutes
-   - Get your live URLs for submission
-
-### Option 2: Run Locally with Docker
-
-1. **Clone the repository**
-   ```bash
-   git clone https://github.com/Niladri-Peace/MGNREGA-Website.git
-   cd MGNREGA-Website
-   ```
-
-2. **Set up environment**
-   ```bash
-   cp .env.example .env
-   # Edit .env with your configuration
-   ```
-
-3. **Start with Docker Compose**
-   ```bash
-   docker-compose up -d --build
-   ```
-
-4. **Access the application**
-   - Frontend: http://localhost:3000
-   - Backend API: http://localhost:8000
-   - API Docs: http://localhost:8000/api/docs
-
-### Option 3: Run Locally (Development)
+### Local Development
 
 **Backend:**
 ```bash
@@ -126,17 +54,28 @@ source venv/bin/activate  # Windows: .\venv\Scripts\activate
 pip install -r requirements-sqlite.txt
 python scripts/init_db.py
 python scripts/seed_data.py
-uvicorn app.main:app --reload
+uvicorn app.main:app --reload --port 8000
 ```
 
 **Frontend:**
 ```bash
 cd frontend
 npm install
-cp .env.local.example .env.local
-# Edit .env.local with backend URL
 npm run dev
 ```
+
+Access the application at `http://localhost:3000`
+
+### Docker Deployment
+
+```bash
+docker-compose up -d --build
+```
+
+Services will be available at:
+- Frontend: http://localhost:3000
+- Backend API: http://localhost:8000
+- API Docs: http://localhost:8000/api/docs
 
 ---
 
@@ -144,118 +83,45 @@ npm run dev
 
 ```
 mgnrega-dashboard/
-├── backend/                    # FastAPI Backend
-│   ├── app/
-│   │   ├── main.py            # Application entry point
-│   │   ├── db/                # Database models
-│   │   └── services/          # Business logic
-│   ├── scripts/
-│   │   ├── init_db.py         # Database initialization
-│   │   └── seed_data.py       # Data seeding
-│   ├── requirements-sqlite.txt
-│   ├── nixpacks.toml          # Railway config
-│   └── Procfile               # Railway start command
-│
-├── frontend/                   # Next.js Frontend
+├── backend/              # FastAPI backend
+│   ├── app/             # Application code
+│   ├── scripts/         # Database scripts
+│   └── requirements-sqlite.txt
+├── frontend/            # Next.js frontend
 │   ├── src/
-│   │   ├── app/               # Next.js App Router
-│   │   ├── components/        # React components
-│   │   ├── hooks/             # Custom hooks
-│   │   └── utils/             # Utilities
-│   ├── package.json
-│   └── nixpacks.toml          # Railway config
-│
-├── docker-compose.yml         # Local development
-├── railway.json               # Railway project config
-├── RAILWAY_DEPLOY.md          # Deployment guide
-└── README.md                  # This file
+│   │   ├── app/        # Pages
+│   │   ├── components/ # React components
+│   │   ├── hooks/      # Custom hooks
+│   │   └── lib/        # API client
+│   └── package.json
+└── docker-compose.yml   # Docker configuration
 ```
 
 ---
 
 ## 📊 Data Coverage
 
-- **States**: West Bengal, Uttar Pradesh, Bihar, Madhya Pradesh, Rajasthan, and more
-- **Districts**: 100+ districts across multiple states
-- **Metrics**: Employment, wages, works, person-days
-- **Time Period**: Historical data with monthly granularity
+- **States**: 5 major states (West Bengal, Uttar Pradesh, Bihar, Maharashtra, Tamil Nadu)
+- **Districts**: 30+ districts with comprehensive data
+- **Metrics**: Employment statistics, wage data, works completed, person-days
+- **Time Range**: 12 months of historical data per district
 
 ---
 
-## 🎬 For Project Submission
+## 🌐 Deployment
 
-### What You Need:
+The application is deployed on Railway with two services:
 
-1. **Live URLs** (after Railway deployment)
-   - Frontend URL
-   - Backend API URL
-   - API Documentation URL
+- **Backend API**: Handles data and business logic
+- **Frontend**: User interface
 
-2. **GitHub Repository**
-   - https://github.com/Niladri-Peace/MGNREGA-Website
-
-3. **Loom Video** (< 2 minutes)
-   - Demo of live application
-   - Show Railway dashboard
-   - Brief code walkthrough
-   - Architecture explanation
-
-### Deployment Guide:
-- See **`RAILWAY_DEPLOY.md`** for complete step-by-step instructions
-- Includes troubleshooting and submission template
-
----
-
-## 🔑 Key Highlights
-
-- ✅ **Accessible Design**: Built for low-literacy rural users
-- ✅ **Production-Ready**: Caching, error handling, monitoring
-- ✅ **Scalable**: Stateless architecture, can handle millions
-- ✅ **Resilient**: Works with cached data if API is down
-- ✅ **Bonus Feature**: Geolocation-based district detection
-- ✅ **Well-Documented**: Complete guides and code comments
-- ✅ **Easy Deployment**: Railway auto-deploy in 15 minutes
-
----
-
-## 📚 Documentation
-
-- **`RAILWAY_DEPLOY.md`** - Complete Railway deployment guide
-- **`README_FINAL.md`** - Detailed project walkthrough
-- **`PROJECT_WALKTHROUGH.md`** - Architecture and design decisions
-- **API Docs** - Auto-generated at `/api/docs` endpoint
-
----
-
-## 🐛 Troubleshooting
-
-### Common Issues:
-
-**Frontend can't connect to backend:**
-- Check `NEXT_PUBLIC_API_URL` in frontend environment variables
-- Verify backend is running and accessible
-- Check CORS settings in backend
-
-**Database is empty:**
-- Ensure `init_db.py` and `seed_data.py` ran successfully
-- Check build logs in Railway deployment
-
-**Deployment failed:**
-- Review deployment logs
-- Verify all configuration files are present
-- Check `nixpacks.toml` settings
-
-See `RAILWAY_DEPLOY.md` for detailed troubleshooting.
+For deployment instructions, see the Railway documentation or contact the repository maintainer.
 
 ---
 
 ## 🤝 Contributing
 
-This is a project for educational purposes. Feel free to:
-- Fork the repository
-- Make improvements
-- Submit pull requests
-- Report issues
+Contributions are welcome! Please feel free to submit pull requests or open issues for bugs and feature requests.
 
 ---
 
@@ -267,24 +133,10 @@ This project is open source and available under the MIT License.
 
 ## 🙏 Acknowledgments
 
-- **Data Source**: data.gov.in (MGNREGA API)
-- **Built with**: FastAPI, Next.js, Railway
-- **Icons**: Emoji icons for accessibility
-- **Inspiration**: Making government data accessible to all citizens
+- MGNREGA data structure inspired by data.gov.in
+- Built with modern web technologies
+- Designed for accessibility and ease of use
 
 ---
 
-## 📞 Support
-
-For deployment help or questions:
-- Check `RAILWAY_DEPLOY.md` troubleshooting section
-- Review Railway documentation: https://docs.railway.app/
-- Check deployment logs in Railway dashboard
-
----
-
-**Ready to deploy? Start with `RAILWAY_DEPLOY.md`** 🚀
-
----
-
-Made with ❤️ for rural India
+Made with ❤️ for empowering citizens
