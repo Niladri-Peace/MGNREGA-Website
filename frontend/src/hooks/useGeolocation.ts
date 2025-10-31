@@ -55,11 +55,6 @@ export const useGeolocation = (): UseGeolocationReturn => {
         try {
           const district = await api.detectDistrictByLocation(latitude, longitude);
           setDetectedDistrict(district);
-          
-          // Store in localStorage for offline use
-          localStorage.setItem('lastKnownDistrict', JSON.stringify(district));
-          localStorage.setItem('lastKnownPosition', JSON.stringify({ latitude, longitude }));
-          
           setLoading(false);
         } catch (err) {
           console.error('Error detecting district:', err);
@@ -96,21 +91,7 @@ export const useGeolocation = (): UseGeolocationReturn => {
     setPosition(null);
     setDetectedDistrict(null);
     setError(null);
-    localStorage.removeItem('lastKnownDistrict');
-    localStorage.removeItem('lastKnownPosition');
   };
-
-  // Load last known position from localStorage on mount
-  useEffect(() => {
-    const lastDistrict = localStorage.getItem('lastKnownDistrict');
-    if (lastDistrict) {
-      try {
-        setDetectedDistrict(JSON.parse(lastDistrict));
-      } catch (err) {
-        console.error('Error parsing last known district:', err);
-      }
-    }
-  }, []);
 
   return {
     position,
